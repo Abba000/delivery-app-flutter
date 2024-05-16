@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -10,7 +12,7 @@ abstract class _Exeptions {
   static String formatException = "Bad response format";
 }
 
-abstract class Apiservice {
+abstract class ApiService {
   Future<Map<String, dynamic>> getDataFromPostRequest(
       {required Map<String, dynamic> bodyParameters,
       required String url,
@@ -25,7 +27,7 @@ abstract class Apiservice {
       {required String url, Map<String, String>? headers});
 }
 
-class DefaultApiService extends Apiservice {
+class DefaultApiService extends ApiService {
   @override
   Future<Map<String, dynamic>> getDataFromGetRequest(
       {required String url, Map<String, String>? headers}) async {
