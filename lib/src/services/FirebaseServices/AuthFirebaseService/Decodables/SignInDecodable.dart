@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 
 class SignInDecodable {
@@ -17,13 +19,12 @@ class SignInDecodable {
     this.registered,
   });
 
-  factory SignInDecodable.fromRawJson(String str) =>
-      SignInDecodable.fromJson(json.decode(str));
+  factory SignInDecodable.fromJson(String str) =>
+      SignInDecodable.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toJson());
+  String toJson() => json.encode(toMap());
 
-  factory SignInDecodable.fromJson(Map<String, dynamic> json) =>
-      SignInDecodable(
+  factory SignInDecodable.fromMap(Map<String, dynamic> json) => SignInDecodable(
         kind: json["kind"],
         localId: json["localId"],
         email: json["email"],
@@ -32,7 +33,7 @@ class SignInDecodable {
         registered: json["registered"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "kind": kind,
         "localId": localId,
         "email": email,

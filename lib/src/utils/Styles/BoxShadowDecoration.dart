@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_test/src/Colors/colors.dart';
 
 // Constants
 const _defectBorderRadius = BorderRadius.all(Radius.circular(20));
@@ -10,6 +11,46 @@ const _defectBoxShadowObject = [
       offset: Offset(0, 5),
       blurRadius: 10.0)
 ];
+
+const BorderSide defaultBorderSide = BorderSide(color: naranja);
+
+const BorderSide borderSideTextFieldError = BorderSide(color: Colors.red);
+
+const BorderSide borderSidePaymentCards =
+    BorderSide(color: Color.fromRGBO(239, 239, 244, 1.0));
+
+const Decoration defaultTextFieldDecoration = BoxDecoration(
+    borderRadius: BorderRadius.all(Radius.circular(8)),
+    border: Border(
+        top: defaultBorderSide,
+        left: defaultBorderSide,
+        bottom: defaultBorderSide,
+        right: defaultBorderSide));
+
+const Decoration borderSideNoneDecoration =
+    BoxDecoration(border: Border(bottom: BorderSide.none));
+
+const Decoration borderSideNoneGrayBackgroundDecoration = BoxDecoration(
+    color: bgGray,
+    borderRadius: BorderRadius.all(Radius.circular(8)),
+    border: Border(bottom: BorderSide.none));
+
+const Decoration borderGrayDecoration = BoxDecoration(
+    color: Color.fromRGBO(248, 248, 248, 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(8)),
+    border: Border(
+        top: borderSidePaymentCards,
+        left: borderSidePaymentCards,
+        right: borderSidePaymentCards,
+        bottom: borderSidePaymentCards));
+
+const Decoration errorTextFieldDecoration = BoxDecoration(
+    borderRadius: BorderRadius.all(Radius.circular(8)),
+    border: Border(
+        top: borderSideTextFieldError,
+        left: borderSideTextFieldError,
+        bottom: borderSideTextFieldError,
+        right: borderSideTextFieldError));
 
 BoxDecoration getBoxDecorationWithShadows(
     {BorderRadiusGeometry borderRadius = _defectBorderRadius,

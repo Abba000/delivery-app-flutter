@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test/src/colors/colors.dart';
-import 'package:flutter_application_test/src/features/presentation/tabs/my_order_tab/View/Components/empty_order_view.dart';
-import 'package:flutter_application_test/src/features/presentation/tabs/my_order_tab/View/Components/list_order_view.dart';
+import 'package:flutter_application_test/src/features/presentation/Tabs/my_order_tab/View/Components/empty_order_view.dart';
+import 'package:flutter_application_test/src/features/presentation/Tabs/my_order_tab/View/Components/list_order_view.dart';
 
 class MyOrderTab extends StatefulWidget {
   const MyOrderTab({super.key});

@@ -2,30 +2,30 @@
 
 import 'dart:convert';
 
-class CorrectPostBodyParams {
+class CorrectPostExpectation {
   String? title;
   String? body;
   int? userId;
 
-  CorrectPostBodyParams({
+  CorrectPostExpectation({
     this.title,
     this.body,
     this.userId,
   });
 
-  factory CorrectPostBodyParams.fromRawJson(String str) =>
-      CorrectPostBodyParams.fromJson(json.decode(str));
+  factory CorrectPostExpectation.fromJson(String str) =>
+      CorrectPostExpectation.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toJson());
+  String toJson() => json.encode(toMap());
 
-  factory CorrectPostBodyParams.fromJson(Map<String, dynamic> json) =>
-      CorrectPostBodyParams(
+  factory CorrectPostExpectation.fromMap(Map<String, dynamic> json) =>
+      CorrectPostExpectation(
         title: json["title"],
         body: json["body"],
         userId: json["userId"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "title": title,
         "body": body,
         "userId": userId,
@@ -33,6 +33,11 @@ class CorrectPostBodyParams {
 }
 
 class CorrectPutBodyParams {
+  int? id;
+  String? title;
+  String? body;
+  int? userId;
+
   CorrectPutBodyParams({
     this.id,
     this.title,
@@ -40,26 +45,23 @@ class CorrectPutBodyParams {
     this.userId,
   });
 
-  int? id;
-  String? title;
-  String? body;
-  int? userId;
-
-  factory CorrectPutBodyParams.fromJson(String str) => CorrectPutBodyParams.fromMap(json.decode(str));
+  factory CorrectPutBodyParams.fromJson(String str) =>
+      CorrectPutBodyParams.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory CorrectPutBodyParams.fromMap(Map<String, dynamic> json) => CorrectPutBodyParams(
-    id: json["id"],
-    title: json["title"],
-    body: json["body"],
-    userId: json["userId"],
-  );
+  factory CorrectPutBodyParams.fromMap(Map<String, dynamic> json) =>
+      CorrectPutBodyParams(
+        id: json["id"],
+        title: json["title"],
+        body: json["body"],
+        userId: json["userId"],
+      );
 
   Map<String, dynamic> toMap() => {
-    "id": id,
-    "title": title,
-    "body": body,
-    "userId": userId,
-  };
+        "id": id,
+        "title": title,
+        "body": body,
+        "userId": userId,
+      };
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "317834915712",
+    "firebase_url": "https://delivery-app-flutter-udemy-default-rtdb.firebaseio.com",
+    "project_id": "delivery-app-flutter-udemy",
+    "storage_bucket": "delivery-app-flutter-udemy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317834915712:android:fd975dae7b4bfac5ae1b65",
+        "android_client_info": {
+          "package_name": "com.agustinabba.deliveryappflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317834915712-1l38euja4maqcntp6njqndvfurmseln6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg9iYHpV3TwM1Y0s7KBsag3UHEoHpvwcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317834915712-1l38euja4maqcntp6njqndvfurmseln6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

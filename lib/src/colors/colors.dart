@@ -11,3 +11,5 @@ const primaryColor = Color.fromRGBO(10, 31, 68, 1.0);
 const naranjaOpaco = Color.fromRGBO(255, 140, 0, 0.5);
 const white = Colors.white;
 const negro = Colors.black;
+const bgGreyCards = Color.fromRGBO(248, 248, 248, 1.0);
+const bgGreyCardsBorders = Color.fromRGBO(239, 239, 244, 1.0);

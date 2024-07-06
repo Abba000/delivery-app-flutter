@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 enum ResultStatus { success, error }
 
 class Result<T, E> {
@@ -5,12 +7,12 @@ class Result<T, E> {
   final T? value;
   final ResultStatus status;
 
-  const Result.success(this.value)
+  Result.success(this.value)
       : status = ResultStatus.success,
         error = null;
-  const Result.failure(this.error)
+  Result.failure(this.error)
       : status = ResultStatus.error,
         value = null;
 
-  Result._internal(this.status, this.error, this.value);
+  Result(this.status, this.error, this.value);
 }
