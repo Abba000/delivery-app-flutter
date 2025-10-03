@@ -1,18 +1,22 @@
 // ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_application_test/src/base/Views/BaseView.dart';
 import 'package:flutter_application_test/src/colors/colors.dart';
 import 'package:flutter_application_test/src/features/presentation/Shared/StateProviders/LoadingStatusProvider.dart';
 import 'package:flutter_application_test/src/features/presentation/Shared/StateProviders/user_state_provider.dart';
 import 'package:flutter_application_test/src/routes/routes.dart';
 import 'package:provider/provider.dart';
-
 import 'src/features/presentation/Shared/MainCordinator/MainCordinator.dart';
 import 'src/features/presentation/Shared/StateProviders/ErrorStateProvider.dart';
 
-void main() => runApp(const AppState());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //await Firebase.initializeApp();
+  runApp(const AppState());
+}
 
 class AppState extends StatelessWidget {
   const AppState({super.key});
@@ -50,13 +54,10 @@ class MyAppUserState extends StatelessWidget with BaseView {
 class MyApp extends StatelessWidget {
   final String _initialRoute;
 
-  const MyApp({super.key, required String initialRoute})
-      : _initialRoute = initialRoute;
+  const MyApp({required String initialRoute}) : _initialRoute = initialRoute;
 
   @override
   Widget build(BuildContext context) {
-    Firebase.initializeApp();
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: routes,
@@ -67,9 +68,9 @@ class MyApp extends StatelessWidget {
           appBarTheme:
               const AppBarTheme(iconTheme: IconThemeData(color: Colors.black))),
       localizationsDelegates: const [
-        //GlobalMaterialLocalizations.delegate,
-        //GlobalWidgetsLocalizations.delegate,
-        //GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
         Locale('en', ''), // English, no country code

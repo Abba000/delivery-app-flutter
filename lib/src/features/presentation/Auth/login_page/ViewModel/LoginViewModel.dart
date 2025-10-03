@@ -13,7 +13,7 @@ import 'package:flutter_application_test/src/features/presentation/Shared/common
 import 'package:flutter_application_test/src/features/presentation/Auth/login_page/Model/LoginModel.dart';
 import 'package:flutter_application_test/src/utils/Helpers/ResultType/ResultType.dart';
 
-abstract mixin class LoginViewModelInput {
+abstract class LoginViewModelInput {
   // Exposed properties
   late GlobalKey<FormState> formKey = GlobalKey<FormState>();
   LoginModel? loginModel = LoginModel(email: '', password: '');
@@ -30,15 +30,15 @@ abstract class LoginViewModel extends LoginViewModelInput
 class DefaultLoginViewModel extends LoginViewModel {
   // * Dependencies
   // * UseCases
-  final SignInUseCase signInUseCase;
-  final SaveLocalStorageUseCase saveLocalStorageUseCase;
+  final SignInUseCase _signInUseCase;
+  final SaveLocalStorageUseCase _saveLocalStorageUseCase;
 
   // * Constructor
   DefaultLoginViewModel(
       {SignInUseCase? signInUseCase,
       SaveLocalStorageUseCase? saveLocalStorageUseCase})
-      : signInUseCase = signInUseCase ?? DefaultSignInUseCase(),
-        saveLocalStorageUseCase =
+      : _signInUseCase = signInUseCase ?? DefaultSignInUseCase(),
+        _saveLocalStorageUseCase =
             saveLocalStorageUseCase ?? DefaultSaveLocalStorageUseCase();
 
   // * Init State
@@ -53,13 +53,13 @@ class DefaultLoginViewModel extends LoginViewModel {
       {required String email, required String password}) {
     loadingStatusState.setLoadingState(isLoading: true);
 
-    return signInUseCase
+    return _signInUseCase
         .execute(
             params: SignInUseCaseParameters(email: email, password: password))
         .then((result) {
       switch (result.status) {
         case ResultStatus.success:
-          saveLocalStorageUseCase.execute(
+          _saveLocalStorageUseCase.execute(
               saveLocalParameteres: SaveLocalStorageParameters(
                   key: LocalStorageKeys.idToken,
                   value: result.value?.localId ?? ""));
@@ -94,6 +94,8 @@ class DefaultLoginViewModel extends LoginViewModel {
       case CustomTextFormFieldType.phone:
         break;
       case CustomTextFormFieldType.dateOfBirth:
+        break;
+      default:
         break;
     }
   }

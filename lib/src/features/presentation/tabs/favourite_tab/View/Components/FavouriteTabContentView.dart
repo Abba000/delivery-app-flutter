@@ -17,13 +17,14 @@ class FavouriteTabContentView extends StatelessWidget {
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
-          leading: const Text(''),
-          backgroundColor: white,
+          backgroundColor: bgGray,
+          centerTitle: true,
           title: TextView(
-              texto: 'My Favourites',
-              color: const ColorScheme.dark().onSecondary,
-              fontSize: 17,
-              fontWeight: FontWeight.w600),
+            texto: 'My Favourites',
+            color: const ColorScheme.dark().secondary,
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         SliverList(
             delegate: SliverChildListDelegate([

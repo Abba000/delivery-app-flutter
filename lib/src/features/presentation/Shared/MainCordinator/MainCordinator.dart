@@ -18,11 +18,15 @@ import '../../Collections/collection_detail_page/View/collection_detail_page.dar
 import '../../Collections/collection_detail_page/ViewModel/CollectionDetailPageViewModel.dart';
 import '../../Collections/collections_page/View/collections_page.dart';
 import '../../FilterPage/View/FilterPage.dart';
-import '../../Filters/filter_page/view/filter_page.dart';
+import '../../OrderConfirmation/View/OrderConfirmation.dart';
 import '../../Places/PlaceDetailPage/View/PlaceDetailPage.dart';
 import '../../Places/PlaceDetailPage/ViewModel/PlaceDetailViewModel.dart';
 import '../../Places/PlaceRatingsPage/PlaceRatingsPage.dart';
 import '../../Places/PopularPlacesListPage/View/PopularPlacesListPage.dart';
+import '../../Profile/AddEditCardPage/View/AddEditCardPage.dart';
+import '../../Profile/AddEditDeliveryAddressPage/View/AddEditDeliveryAddressPage.dart';
+import '../../Profile/AddEditPaypalAccountPage/View/AddEditPaypalAccountPage.dart';
+import '../../Profile/ChangeDeliveryAddressPage/View/ChangeDeliveryAddressPage.dart';
 
 class RoutesPaths {
   static String welcomePath = "welcome";

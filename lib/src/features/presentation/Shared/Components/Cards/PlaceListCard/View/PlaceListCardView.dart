@@ -16,9 +16,7 @@ class PlaceListCardView extends StatelessWidget with BaseView {
   final PlaceDetailEntity placeListDetailEntity;
 
   PlaceListCardView(
-      {super.key,
-      required this.hasFreeDelivery,
-      required this.placeListDetailEntity});
+      {required this.hasFreeDelivery, required this.placeListDetailEntity});
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +68,8 @@ class RightContentPlaceListCardView extends StatelessWidget {
   final bool hasFreeDelivery;
   final PlaceDetailEntity placeListDetailEntity;
 
-  const RightContentPlaceListCardView(
-      {super.key,
-      required this.hasFreeDelivery,
-      required this.placeListDetailEntity});
+  RightContentPlaceListCardView(
+      {required this.hasFreeDelivery, required this.placeListDetailEntity});
 
   @override
   Widget build(BuildContext context) {

@@ -1,16 +1,18 @@
 // ignore_for_file: file_names
 
-import 'package:flutter_application_test/src/features/data/Interfaces/Interfaces.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+abstract class RemoveLocalStorageRepository {
+  Future<void> removeInLocalStorage({required String key});
+}
+
 class DefaultRemoveLocalStorageRepository extends RemoveLocalStorageRepository {
-  //DEPENDENCIAS
-  final SharedPreferences _prefs =
-      SharedPreferences.getInstance() as SharedPreferences;
+  // * Dependencies
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   @override
-  Future<void> removeInLocalStorage({required String key}) async {
-    final SharedPreferences prefs = _prefs;
-    prefs.remove(key);
+  Future removeInLocalStorage({required String key}) async {
+    final SharedPreferences prefs = await _prefs;
+    return prefs.remove(key);
   }
 }

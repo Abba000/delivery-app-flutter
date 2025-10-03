@@ -15,6 +15,8 @@ import 'package:flutter_application_test/src/services/FirebaseServices/AuthFireb
 import 'package:flutter_application_test/src/utils/Helpers/ResultType/ResultType.dart';
 
 import '../../domain/Entities/Places/PlacesListEntity/PlacesListEntity.dart';
+import '../Decodables/PaymentMethods/PaymentMethodsDecodable.dart';
+import '../Repositories/PaymentMethods/BodyParameters/PaymentMethodsBodyParameters.dart';
 
 abstract class SignInRepositorty {
   Future<Result<SignInDecodable, Failure>> signIn(
@@ -94,4 +96,11 @@ abstract class PlaceListRepository {
 
 abstract class PlaceDetailRepository {
   Future<void> savePlaceDetail({required PlaceDetailEntity placeDetail});
+}
+
+abstract class PaymentMethodsRepository {
+  Future<PaymentMethodsDecodable> getPaymentMethods({required String localId});
+  Future<PaymentMethodsDecodable> savePaymentMethods(
+      {required String localId,
+      required PaymentMethodsBodyParameters bodyParameters});
 }

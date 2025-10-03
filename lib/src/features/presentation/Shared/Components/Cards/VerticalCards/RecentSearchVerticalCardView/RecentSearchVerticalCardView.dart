@@ -2,15 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test/src/features/presentation/Shared/MainCordinator/MainCordinator.dart';
-import 'package:flutter_application_test/src/utils/Helpers/DefaultImages/DefaultCardImageUrl.dart';
 import '../../../../../../../base/Views/BaseView.dart';
 import '../../../../../../../colors/colors.dart';
+import '../../../../../../../utils/Helpers/DefaultImages/DefaultCardImageUrl.dart';
 import '../../../../../../domain/Entities/Places/PlacesListEntity/PlacesListEntity.dart';
 
 class RecentSearchVerticalCardView extends StatelessWidget with BaseView {
   final PlaceDetailEntity placeListDetailEntity;
 
-  // ignore: use_key_in_widget_constructors
   RecentSearchVerticalCardView({required this.placeListDetailEntity});
 
   @override

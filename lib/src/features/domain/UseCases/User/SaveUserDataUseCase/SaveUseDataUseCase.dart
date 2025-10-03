@@ -2,12 +2,12 @@
 
 import 'package:flutter_application_test/src/base/ApiService/AppError.dart';
 import 'package:flutter_application_test/src/features/data/Repositories/User/SaveUserDataRepository.dart';
-import 'package:flutter_application_test/src/features/data/Repositories/User/UserBodyParameters.dart';
-import 'package:flutter_application_test/src/features/domain/Entities/User/UserEntity.dart';
 import 'package:flutter_application_test/src/features/domain/UseCases/User/SaveUserDataUseCase/SaveUseDataUseCaseParameters.dart';
 import 'package:flutter_application_test/src/utils/Helpers/ResultType/ResultType.dart';
 
 import '../../../../../base/Constants/ErrorMessage.dart';
+import '../../../../data/Repositories/User/UserBodyParameters.dart';
+import '../../../Entities/User/UserEntity.dart';
 
 abstract class SaveUserDataUseCase {
   Future<Result<UserEntity, Failure>> execute(

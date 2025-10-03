@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import '../../../../Base/ApiService/ApiService.dart';
+import '../../../../base/ApiService/ApiService.dart';
 
 abstract class BaseAuthFirebaseService {
   ApiService apiService = DefaultApiService();

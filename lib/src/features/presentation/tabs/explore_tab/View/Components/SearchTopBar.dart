@@ -22,20 +22,19 @@ class SearchTopBar extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, left: 10.0),
             margin: const EdgeInsets.only(left: 0, top: 20),
             decoration: BoxDecoration(
-                border:
-                    Border.all(color: const Color.fromRGBO(234, 236, 239, 1.0)),
+                border: Border.all(color: bgInput),
                 borderRadius: BorderRadius.circular(20.0)),
             child: Row(
               children: [
                 const Icon(
                   Icons.search,
                   size: 20.0,
-                  color: bgGray,
+                  color: bgInput,
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 5),
                   child: const Text('Search',
-                      style: TextStyle(color: bgGray, fontSize: 18.0)),
+                      style: TextStyle(color: bgInput, fontSize: 18.0)),
                 )
               ],
             ),

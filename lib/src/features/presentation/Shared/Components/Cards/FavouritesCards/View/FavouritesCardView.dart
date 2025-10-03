@@ -19,8 +19,7 @@ class FavouritesCardView extends StatefulWidget {
   final FavouritesCardViewDelegate? delegate;
 
   FavouritesCardView(
-      {super.key,
-      required this.isFavourite,
+      {required this.isFavourite,
       required this.placeListDetailEntity,
       this.delegate});
 

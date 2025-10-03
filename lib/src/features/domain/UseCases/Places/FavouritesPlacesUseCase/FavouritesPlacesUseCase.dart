@@ -33,7 +33,7 @@ class DefaultFavouritesPlacesUseCase extends FavouritesPlacesUseCase {
       {required String localId}) async {
     var placeList = await _placeListUseCase.fetchPlaceList();
     placeList.placeList = placeList.placeList
-        ?.where((place) => place.favourites.contains(localId))
+        ?.where((place) => place.favourites?.contains(localId) ?? false)
         .toList();
     return placeList;
   }
@@ -56,7 +56,7 @@ class DefaultFavouritesPlacesUseCase extends FavouritesPlacesUseCase {
     var placeList = await _placeListUseCase.fetchPlaceList();
     var placeDetail =
         placeList.placeList?.firstWhere((place) => place.placeId == placeId);
-    placeDetail?.favourites.add(localId);
+    placeDetail?.favourites?.add(localId);
     if (placeDetail == null) {
       return Future.error(AppFailureMessages.unExpectedErrorMessage);
     }
@@ -71,7 +71,7 @@ class DefaultFavouritesPlacesUseCase extends FavouritesPlacesUseCase {
     var placeList = await _placeListUseCase.fetchPlaceList();
     var placeDetail =
         placeList.placeList?.firstWhere((place) => place.placeId == placeId);
-    placeDetail?.favourites.remove(localId);
+    placeDetail?.favourites?.remove(localId);
     if (placeDetail == null) {
       return Future.error(AppFailureMessages.unExpectedErrorMessage);
     }

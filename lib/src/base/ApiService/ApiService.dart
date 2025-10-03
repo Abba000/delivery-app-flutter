@@ -3,7 +3,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter_application_test/src/base/ApiService/AppError.dart';
+import 'package:http/http.dart' as http;
+import '../../utils/Helpers/Logger/Logger.dart';
+import 'AppError.dart';
 
 abstract class _Exceptions {
   static String socketExceptionMessage = "No Internet connection 😑";
@@ -25,21 +27,23 @@ abstract class ApiService {
 }
 
 class DefaultApiService extends ApiService {
-  get http => null;
-
   @override
   Future<Map<String, dynamic>> getDataFromGetRequest(
       {required String url, Map<String, String>? headers}) async {
     var url0 = Uri.parse(url);
     var response = await http.get(url0, headers: headers);
+
+    Logger.printRequest(url: url, method: Method.get, headers: headers);
+
     try {
+      Logger.printRespone(
+          url: url, method: Method.get, response: response, headers: headers);
+
       if (response.statusCode.toString().contains('20')) {
         var jsonData = jsonDecode(response.body);
-        //print("Api Service");
-        // print(jsonData);
         // Null Check
         if (jsonData == null) {
-          throw Failure.fromMessage(message: _Exceptions.formatException);
+          throw Failure.fromMessage(message: _Exceptions.httpException);
         } else {
           return jsonData;
         }
@@ -64,12 +68,25 @@ class DefaultApiService extends ApiService {
     var body = json.encode(bodyParameters);
     var response = await http.post(url0, headers: headers, body: body);
 
+    Logger.printRequest(
+        url: url,
+        method: Method.post,
+        bodyParameters: bodyParameters,
+        headers: headers);
+
     try {
+      Logger.printRespone(
+          url: url,
+          method: Method.post,
+          response: response,
+          headers: headers,
+          bodyParameters: bodyParameters);
+
       if (response.statusCode.toString().contains('20')) {
         var jsonData = jsonDecode(response.body);
         // Null Check
         if (jsonData == null) {
-          throw Failure.fromMessage(message: _Exceptions.formatException);
+          throw Failure.fromMessage(message: _Exceptions.httpException);
         } else {
           return jsonData;
         }
@@ -94,12 +111,25 @@ class DefaultApiService extends ApiService {
     var body = json.encode(bodyParameters);
     var response = await http.put(url0, headers: headers, body: body);
 
+    Logger.printRequest(
+        url: url,
+        method: Method.get,
+        bodyParameters: bodyParameters,
+        headers: headers);
+
     try {
+      Logger.printRespone(
+          url: url,
+          method: Method.put,
+          response: response,
+          headers: headers,
+          bodyParameters: bodyParameters);
+
       if (response.statusCode.toString().contains('20')) {
         var jsonData = jsonDecode(response.body);
         // Null Check
         if (jsonData == null) {
-          throw Failure.fromMessage(message: _Exceptions.formatException);
+          throw Failure.fromMessage(message: _Exceptions.httpException);
         } else {
           return jsonData;
         }

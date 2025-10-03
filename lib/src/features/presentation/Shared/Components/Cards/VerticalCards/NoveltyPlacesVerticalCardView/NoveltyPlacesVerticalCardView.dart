@@ -41,7 +41,7 @@ class NoveltyPlacesVerticalCardView extends StatelessWidget with BaseView {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 10.0),
-                  child: Text(placeListDetailEntity.placeName,
+                  child: Text(placeListDetailEntity.placeName ?? "",
                       style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -49,7 +49,7 @@ class NoveltyPlacesVerticalCardView extends StatelessWidget with BaseView {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  child: Text(placeListDetailEntity.address,
+                  child: Text(placeListDetailEntity.address ?? "",
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                           color: gris,
@@ -59,12 +59,12 @@ class NoveltyPlacesVerticalCardView extends StatelessWidget with BaseView {
                 Row(
                   children: [
                     const Icon(Icons.star, color: amarillo, size: 16),
-                    Text("${placeListDetailEntity.ratingAverage}",
+                    Text("${placeListDetailEntity.ratingAverage ?? 0.0}",
                         style: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontSize: 13.0)),
-                    Text("(${placeListDetailEntity.ratings} ratings)",
+                    Text("(${placeListDetailEntity.ratings ?? 0.0} ratings)",
                         style: const TextStyle(
                             color: gris,
                             fontWeight: FontWeight.w500,

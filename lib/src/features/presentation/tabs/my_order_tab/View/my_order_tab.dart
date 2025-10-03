@@ -17,7 +17,6 @@ class _MyOrderTabState extends State<MyOrderTab> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: bgGray,
-        body:
-            emptyOrderState ? const EmptyOrderView() : const ListOrdersView());
+        body: emptyOrderState ? EmptyOrderView() : const ListOrdersView());
   }
 }

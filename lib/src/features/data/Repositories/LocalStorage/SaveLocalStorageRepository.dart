@@ -1,7 +1,12 @@
 // ignore_for_file: file_names
 
-import 'package:flutter_application_test/src/features/data/Interfaces/Interfaces.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+abstract class SaveLocalStorageRepository {
+  Future<void> saveInLocalStorage({required String key, required String value});
+  Future<void> saveRecentSearchInLocalStorage(
+      {required String key, required List<String> value});
+}
 
 class DefaultSaveLocalStorageRepository extends SaveLocalStorageRepository {
   // * Dependencies

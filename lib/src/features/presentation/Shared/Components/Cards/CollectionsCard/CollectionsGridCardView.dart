@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_test/src/features/presentation/Shared/MainCordinator/MainCordinator.dart';
 
 import '../../../../../../base/Views/BaseView.dart';
+import '../../../../../../utils/Helpers/DefaultImages/DefaultCardImageUrl.dart';
 import '../../../../../domain/Entities/Collections/CollectionsEntity.dart';
 import '../../../commons_widgets/Texts/TextView/View/TextView.dart';
 
@@ -29,7 +30,8 @@ class CollectionGridCardView extends StatelessWidget with BaseView {
                   width: 165,
                   height: 190,
                   fit: BoxFit.cover,
-                  image: NetworkImage(collection.img)),
+                  image: NetworkImage(collection?.img ??
+                      DefaultCardImageUrlHelper.defaultCardImageUrl)),
             ),
             Container(
               width: 165,

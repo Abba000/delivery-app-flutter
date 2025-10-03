@@ -2,6 +2,8 @@
 
 import 'dart:convert';
 
+import 'package:flutter_application_test/src/utils/Extensions/Iterable/IterableExtension.dart';
+
 class PlaceListEntity {
   PlaceListEntity({
     required this.placeList,
@@ -226,17 +228,22 @@ class PlaceProductEntity {
         "productPrice": productPrice,
         "options": options == null
             ? []
-            : List<dynamic>.from(options.map((x) => x.toJson())),
+            : List<dynamic>.from(options!.map((x) => x.toJson())),
       };
 
   String getExtras() {
-    List<String> extrasList = [];
-    for (var option in options) {
-      extrasList.addAll(option.extras
-          .where((extra) => extra.isSelected)
-          .map((extra) => extra.title));
-    }
-    return extrasList.join(", ");
+    var extrasJoined = "";
+    options.forEach((option) {
+      extrasJoined = option.extras
+          .map((extra) {
+            if (extra.isSelected) {
+              return extra.title;
+            }
+          })
+          .compactMap()
+          .join(", ");
+    });
+    return extrasJoined;
   }
 }
 
@@ -288,9 +295,9 @@ class PlaceProductExtrasEntity {
   }
 
   disableAllExtras() {
-    for (var extra in extras) {
+    extras.forEach((extra) {
       extra.isSelected = false;
-    }
+    });
   }
 }
 

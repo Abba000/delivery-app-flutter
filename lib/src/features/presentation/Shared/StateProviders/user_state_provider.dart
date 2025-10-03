@@ -10,6 +10,8 @@ import '../../../domain/Entities/DeliveryAddress/DeliveryAddressEntity.dart';
 import '../../../domain/Entities/PaymentMethods/PaymentMethodsEntity.dart';
 import '../../../domain/Entities/Places/PlacesListEntity/PlacesListEntity.dart';
 import '../../../domain/Entities/User/UserEntity.dart';
+import '../../../domain/UseCases/DeliveryAddress/DeliveryAddressUseCase.dart';
+import '../../../domain/UseCases/PaymentMethods/PymentMethodsUseCase.dart';
 import '../../../domain/UseCases/Places/FavouritesPlacesUseCase/FavouritesPlacesUseCase.dart';
 import '../../../domain/UseCases/User/FechUserDataUseCase/FechUserDataUseCase.dart';
 import '../../../domain/UseCases/User/SaveUserDataUseCase/SaveUseDataUseCase.dart';
@@ -68,8 +70,7 @@ class DefaultUserStateProvider extends ChangeNotifier
 // UserData
 extension UserData on DefaultUserStateProvider {
   fetchUserData({required String localId}) async {
-    userData =
-        (await _fetchUserDataUseCase.execute(localId: localId)) as UserEntity?;
+    userData = await _fetchUserDataUseCase.execute(localId: localId);
   }
 
   Future<UserEntity> updateUserData({required UserEntity user}) async {

@@ -2,7 +2,6 @@
 
 import 'package:flutter_application_test/src/base/Constants/LocalStorageKey.dart';
 import 'package:flutter_application_test/src/features/data/Repositories/LocalStorage/SaveLocalStorageRepository.dart';
-import 'package:flutter_application_test/src/features/data/Interfaces/Interfaces.dart';
 import 'package:flutter_application_test/src/features/domain/UseCases/LocalStorage/FetchLocalStorageUseCase.dart';
 import 'package:flutter_application_test/src/features/domain/UseCases/LocalStorage/LocalStorageUseCaseParameters.dart';
 

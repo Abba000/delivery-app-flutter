@@ -77,6 +77,7 @@ class LoginPage extends StatelessWidget with BaseView {
                                             color: gris,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 15.0)),
+                                    const SizedBox(height: 16),
                                     CustomTextFormField(
                                         delegate: _viewModel,
                                         textFormFieldType:
@@ -98,7 +99,8 @@ class LoginPage extends StatelessWidget with BaseView {
                                       margin: const EdgeInsets.only(top: 30.0),
                                       child: GestureDetector(
                                         onTap: () {
-                                          //coordinator.showUpdatePasswordPage(context: context);
+                                          coordinator.showUpdatePasswordPage(
+                                              context: context);
                                         },
                                         child: const Text(
                                             'Forgot you password?',
@@ -121,7 +123,8 @@ class LoginPage extends StatelessWidget with BaseView {
                                                   fontSize: 15.0)),
                                           GestureDetector(
                                             onTap: () {
-                                              //coordinator.showSignUpPage(context: context);
+                                              coordinator.showSignUpPage(
+                                                  context: context);
                                             },
                                             child: Container(
                                               margin:

@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter_application_test/src/base/ApiService/AppError.dart';
 import 'package:flutter_application_test/src/base/Constants/LocalStorageKey.dart';
@@ -40,6 +40,7 @@ class DefaultGoogleSignInUseCase extends GoogleSignInUseCase {
     _saveLocalStorageUseCase.execute(
         saveLocalParameteres: SaveLocalStorageParameters(
             key: LocalStorageKeys.idToken, value: user.uid ?? ""));
+
     final isUserInDatabase =
         await _googleSignInService.isUserInDatabase(uid: user.uid ?? "");
     if (isUserInDatabase) {
@@ -53,7 +54,7 @@ class DefaultGoogleSignInUseCase extends GoogleSignInUseCase {
 extension on DefaultGoogleSignInUseCase {
   Future<Result<UserEntity, Failure>> _saveUserDataInDataBase(
       {required GoogleSignInUserEntity user}) {
-    SaveUserDataUseCaseParameters params = SaveUserDataUseCaseParameters(
+    SaveUserDataUseCaseParameters _params = SaveUserDataUseCaseParameters(
         localId: user.uid,
         role: UserRole.user,
         username: user.displayName,
@@ -64,9 +65,10 @@ extension on DefaultGoogleSignInUseCase {
         photo: user.photoURL,
         shippingAddress: '',
         billingAddress: '',
-        idToken: user.idToken);
+        idToken: user.idToken,
+        provider: UserAuthProvider.google);
 
-    return _saveUserDataUseCase.execute(params: params);
+    return _saveUserDataUseCase.execute(params: _params);
   }
 
   UserEntity mapUserEntity({required GoogleSignInUserEntity user}) {
@@ -81,6 +83,7 @@ extension on DefaultGoogleSignInUseCase {
         photo: user.photoURL,
         shippingAddress: '',
         billingAddress: '',
-        idToken: user.refreshToken);
+        idToken: user.refreshToken,
+        provider: UserAuthProvider.google);
   }
 }

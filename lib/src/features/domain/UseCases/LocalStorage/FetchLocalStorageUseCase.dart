@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:flutter_application_test/src/features/data/Interfaces/Interfaces.dart';
 import 'package:flutter_application_test/src/features/data/Repositories/LocalStorage/FetchLocalStorageRepository.dart';
 import 'package:flutter_application_test/src/features/domain/UseCases/LocalStorage/LocalStorageUseCaseParameters.dart';
 

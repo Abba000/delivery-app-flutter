@@ -6,20 +6,6 @@ import '../DeliveryAddress/DeliveryAddressEntity.dart';
 import '../PaymentMethods/PaymentMethodsEntity.dart';
 import '../Places/PlacesListEntity/PlacesListEntity.dart';
 
-/*
-  Order status can be:
-  "Not Confirmed" - The order is empty or not confirmed by the user.
-  "Confirmed" - The order is confirmed and pay it by the user.
-  "Preparing" - The place is preparing the order.
-  "OnTheWay" - The rider is on the way with the order.
-  "Completed" - The user have ther order and every body is happy.
-  "NotCompleted" - Something bad happened and the order was not delivered to the user by the place.
-
-  Delivery Time can be:
-  "ASAP" - As soon as posible
-  "Date" - Pending feature
-*/
-
 class OrderEntity {
   late String orderId;
   late PlaceDetailEntity place;
@@ -124,9 +110,9 @@ class OrderEntity {
   updateTotalPrice() {
     totalAmount = 0;
     totalAmountToPay = 0;
-    for (var product in products) {
+    products.forEach((product) {
       totalAmount = totalAmount + product.totalPrice;
-    }
+    });
     totalAmountToPay = totalAmount + deliveryFee + fee + courierTip;
   }
 }
@@ -174,18 +160,18 @@ class ProductOrderEntity {
         "productPrice": productPrice,
         "options": options == null
             ? []
-            : List<dynamic>.from(options.map((x) => x.toJson())),
+            : List<dynamic>.from(options!.map((x) => x.toJson())),
       };
 
   double _getTotalPrice() {
     double totalPrice = productPrice;
-    for (var option in options) {
-      for (var extra in option.extras) {
+    options.forEach((option) {
+      option.extras.forEach((extra) {
         if (extra.isSelected) {
           totalPrice = totalPrice + extra.price;
         }
-      }
-    }
+      });
+    });
     totalPrice = totalPrice * amount;
     return totalPrice;
   }
